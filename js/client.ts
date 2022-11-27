@@ -35,9 +35,14 @@ interface currentCityInfo {
 async function getData(city: string) {
     let cities: any = await getCityArray(city);
     let cityId: number = cities[0].id;
+    let current: any = await getCityCurrentInfo(cityId);
 
+    document.getElementById('currTime')!.innerHTML = `&nbsp;${current.time}`;
+    document.getElementById('currCondition')!.innerHTML = `&nbsp;${current.symbolPhrase}`;
+    document.getElementById('currTemp')!.innerHTML = `&nbsp;${current.temperature} °C`;
+    document.getElementById('currFeelTemp')!.innerHTML = `&nbsp;${current.feelsLikeTemp} °C`;
 
-    console.log(cityId);
+    console.log(current);
 }
 
 async function getCityArray(city: string) {
@@ -61,5 +66,20 @@ async function getCityArray(city: string) {
 }
 
 async function getCityCurrentInfo(cityId: number) {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '400b663645msh7f1cba8d4738e39p1cdf3fjsn2222398c9f0e',
+            'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+        }
+    };
 
+    let data = await fetch(`https://foreca-weather.p.rapidapi.com/current/${cityId}?tempunit=C&windunit=MS&tz=Europe%2FVienna&lang=en`, options)
+        .then(response => response.json())
+        .then(response => {
+            return response.current as currentCityInfo;
+        })
+        .catch(err => console.error(err));
+
+    return data;
 }

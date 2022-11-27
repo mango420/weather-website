@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
 *,
 *:before,
 *:after {
@@ -107,7 +108,75 @@ input {
 }
 
 ::selection {
-  color: #b2e6f7;
+  color: #6298fc;
+}
+
+h1 {
+  font-size: 2vw;
+  margin-bottom: 1vw;
+  margin-top: 2vw;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto 0 auto;
+  width: 55vw;
+  height: 100%;
+  background-color: rgb(219, 245, 255);
+}
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: auto auto;
+}
+
+.mini-container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+.mini-container p {
+  font-size: 1.125em;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 0.6vw;
+}
+
+label {
+  font-size: 1.2vw;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 1vw;
+}
+
+input {
+  margin: auto 23vw 1.5vw 23vw;
+  text-align: center;
+  background-color: unset;
+  color: rgb(0, 0, 0);
+  border: unset;
+  font-size: 1vw;
+  border-bottom: 1px solid #000000;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+button {
+  margin: auto 23vw 1.5vw 23vw;
+  height: 1.5vw;
+  font-size: 0.75vw;
+  background-color: rgb(212, 212, 212);
+  border: black solid 1px;
+  border-radius: 8px;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
 }
 
 /*# sourceMappingURL=main.css.map */

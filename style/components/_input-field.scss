@@ -1,0 +1,14 @@
+input {
+    margin: auto 23vw 1.5vw 23vw;
+
+    text-align: center;
+    background-color: unset;
+    color: rgb(0, 0, 0);
+    border: unset;
+    font-size: 1vw;
+    border-bottom: 1px solid #000000;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}

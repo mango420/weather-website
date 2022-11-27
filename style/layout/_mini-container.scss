@@ -1,0 +1,11 @@
+.mini-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+
+    p {
+        font-size: 1.125em;
+        font-family: $paragraph-font;
+        margin-bottom: 0.6vw;
+    }
+}

@@ -11,7 +11,66 @@
 </head>
 
 <body>
-    <button onclick="getData('Stainz')">test</button>
+    <div class="container">
+        <h1>Weather app</h1>
+        <label for="inputCity">Input a city!</label>
+        <input type="text" name="inputCity" id="inputCity">
+        <button onclick="getData(inputCity.value)">get current weather data</button>
+        <div class="data-container">
+            <div class="mini-container">
+                <p>Current time:</p>
+                <p id="currTime"></p>
+            </div>
+            <div class="mini-container">
+                <p>Condition:</p>
+                <p id="currCondition"></p>
+            </div>
+            <div class="mini-container">
+                <p>Temperature:</p>
+                <p id="currTemp"></p>
+            </div>
+            <div class="mini-container">
+                <p>Feels like temperature:</p>
+                <p id="currFeelTemp"></p>
+            </div>
+            <div class="mini-container">
+                <p>Relative humidity:</p>
+                <p id="relHum"></p>
+            </div>
+            <div class="mini-container">
+                <p>Dew point:</p>
+                <p id="dewPoint"></p>
+            </div>
+            <div class="mini-container">
+                <p>Wind speed:</p>
+                <p id="windSpeed"></p>
+            </div>
+            <div class="mini-container">
+                <p>Wind direction:</p>
+                <p id="windDir"></p>
+            </div>
+            <div class="mini-container">
+                <p>Cloudiness:</p>
+                <p id="cloudiness"></p>
+            </div>
+            <div class="mini-container">
+                <p>Thunder probability:</p>
+                <p id="thunderProb"></p>
+            </div>
+            <div class="mini-container">
+                <p>UV-index:</p>
+                <p id="uvIndex"></p>
+            </div>
+            <div class="mini-container">
+                <p>Pressure:</p>
+                <p id="pressure"></p>
+            </div>
+            <div class="mini-container">
+                <p>Visibility:</p>
+                <p id="visibility"></p>
+            </div>
+        </div>
+    </div>
     <script src="js/client.js"></script>
 </body>
 
