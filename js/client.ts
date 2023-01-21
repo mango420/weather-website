@@ -37,11 +37,19 @@ async function getData(city: string) {
     let cityId: number = cities[0].id;
     let current: any = await getCityCurrentInfo(cityId);
 
+
+
     document.getElementById('currTime')!.innerHTML = `&nbsp;${current.time}`;
     //TODO change symbol if cond change
     document.getElementById('currCondition')!.innerHTML = `&nbsp;${current.symbolPhrase}`;
     //TODO changes symbol if cold, warm etc.
-    document.getElementById('currTemp')!.innerHTML = `&nbsp;${current.temperature} °C`;
+
+    if (current.temperature <= 0) {
+        document.getElementById('tempSymbol')!.innerHTML = 'ac_unit';
+
+    }
+    document.getElementById('currTemp')!.innerHTML = `&nbsp;${current.temperature} °C `;
+
     document.getElementById('currFeelTemp')!.innerHTML = `&nbsp;${current.feelsLikeTemp} °C`;
     document.getElementById('relHum')!.innerHTML = `&nbsp;${current.relHumidity} %`;
     document.getElementById('dewPoint')!.innerHTML = `&nbsp;${current.dewPoint} °C`;
@@ -56,6 +64,7 @@ async function getData(city: string) {
 
     document.getElementById('pressure')!.innerHTML = `&nbsp;${current.pressure} hPa`;
     document.getElementById('visibility')!.innerHTML = `&nbsp;${current.visibility}`;
+
 }
 
 async function getCityArray(city: string) {
@@ -73,7 +82,9 @@ async function getCityArray(city: string) {
         .then(response => {
             return response.locations as city[];
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+            return null;
+        });
 
     return data;
 }
@@ -92,7 +103,10 @@ async function getCityCurrentInfo(cityId: number) {
         .then(response => {
             return response.current as currentCityInfo;
         })
-        .catch(err => console.error(err));
+        //TODO change error behavior
+        .catch(err => {
+            return null;
+        });
 
     return data;
 }

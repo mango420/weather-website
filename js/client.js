@@ -7,7 +7,10 @@ async function getData(city) {
     //TODO change symbol if cond change
     document.getElementById('currCondition').innerHTML = `&nbsp;${current.symbolPhrase}`;
     //TODO changes symbol if cold, warm etc.
-    document.getElementById('currTemp').innerHTML = `&nbsp;${current.temperature} °C`;
+    if (current.temperature <= 0) {
+        document.getElementById('tempSymbol').innerHTML = 'ac_unit';
+    }
+    document.getElementById('currTemp').innerHTML = `&nbsp;${current.temperature} °C `;
     document.getElementById('currFeelTemp').innerHTML = `&nbsp;${current.feelsLikeTemp} °C`;
     document.getElementById('relHum').innerHTML = `&nbsp;${current.relHumidity} %`;
     document.getElementById('dewPoint').innerHTML = `&nbsp;${current.dewPoint} °C`;
@@ -35,7 +38,9 @@ async function getCityArray(city) {
         .then(response => {
         return response.locations;
     })
-        .catch(err => console.error(err));
+        .catch(err => {
+        return null;
+    });
     return data;
 }
 async function getCityCurrentInfo(cityId) {
@@ -51,6 +56,9 @@ async function getCityCurrentInfo(cityId) {
         .then(response => {
         return response.current;
     })
-        .catch(err => console.error(err));
+        //TODO change error behavior
+        .catch(err => {
+        return null;
+    });
     return data;
 }
